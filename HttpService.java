@@ -9,21 +9,27 @@ import java.util.Scanner;
 
 public class HttpService extends AsyncTask<Void, Void, CEP>
 {
-    private final String cepInserido;
+    private final String cepDigitado;
 
+//    RConstrutor - Recebe apenas a numeração do cep digitado na classe Main, em formato de string.
     public HttpService(String cep) {
-        this.cepInserido = cep;
+        this.cepDigitado = cep;
     }
 
     @Override
     protected CEP doInBackground (Void... voids) {
         StringBuilder resposta = new StringBuilder();
 
-        if (this.cepInserido != null && this.cepInserido.length() == 8) {
+//        Validação do cep: vazio ou quantidade de cracteres desejados
+        if (this.cepDigitado != null && this.cepDigitado.length() == 8) {
             try {
-                URL url = new URL("https://viacep.com.br/ws/" + this.cepInserido +"/json");
+//                Declaração da URL e armazenamento do endPoint
+                URL url = new URL("https://viacep.com.br/ws/" + this.cepDigitado +"/json");
 
+//                Abertura/Início da conexão
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+//                Características da comunicação (verbo HTTP)
                 connection.setRequestMethod("GET");
                 connection.setRequestProperty("Content-type", "application/json");
                 connection.setRequestProperty("Accept", "application/json");
