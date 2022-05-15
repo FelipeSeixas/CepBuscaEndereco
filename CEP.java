@@ -58,11 +58,11 @@ public class CEP {
 
     @Override
     public String toString() {
-        return "CEP: " + getCep()
-                + "\nLogradouro: " + getLogradouro()
-                + "\nComplemento: " + getComplemento()
-                + "\nBairro: " + getBairro()
-                + "\nCidade:" + getLocalidade()
-                + "\nEstado: " + getUf();
+        return "==> CEP: " + getCep()
+                + "\n1-Logradouro: " + getLogradouro()
+                + "\n2-Complemento: " + getComplemento()
+                + "\n3-Bairro: " + getBairro()
+                + "\n4-Cidade:" + getLocalidade()
+                + "\n5-Estado: " + getUf();
     }
 }
